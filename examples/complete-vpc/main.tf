@@ -15,7 +15,7 @@ module "vpc" {
   cidr = "10.65.0.0/16" # 10.0.0.0/8 is reserved for EC2-Classic
 
   azs                 = ["ap-southeast-1a", "ap-southeast-1b", "ap-southeast-1c"]
-  app_subnets         = ["10.65.21.0/24", "10.65.22.0/24", "10.65.23.0/24"]
+  private_subnets     = ["10.65.21.0/24", "10.65.22.0/24", "10.65.23.0/24"]
   public_subnets      = ["10.65.11.0/24", "10.65.12.0/24", "10.65.13.0/24"]
   database_subnets    = ["10.65.31.0/24", "10.65.32.0/24", "10.65.33.0/24"]
 
