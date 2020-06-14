@@ -28,35 +28,6 @@ module "vpc" {
   dhcp_options_domain_name         = "service.consul"
   dhcp_options_domain_name_servers = ["127.0.0.1", "10.65.0.2"]
 
-  # VPC endpoint for S3
-  enable_s3_endpoint = true
-
- # VPC endpoint for SSM
-  enable_ssm_endpoint              = true
-  ssm_endpoint_private_dns_enabled = true
-  ssm_endpoint_security_group_ids  = [data.aws_security_group.default.id]
-
-  # VPC endpoint for SSMMESSAGES
-  enable_ssmmessages_endpoint              = true
-  ssmmessages_endpoint_private_dns_enabled = true
-  ssmmessages_endpoint_security_group_ids  = [data.aws_security_group.default.id]
-
-  # VPC Endpoint for EC2
-  enable_ec2_endpoint              = true
-  ec2_endpoint_private_dns_enabled = true
-  ec2_endpoint_security_group_ids  = [data.aws_security_group.default.id]
-
-  # VPC Endpoint for EC2MESSAGES
-  enable_ec2messages_endpoint              = true
-  ec2messages_endpoint_private_dns_enabled = true
-  ec2messages_endpoint_security_group_ids  = [data.aws_security_group.default.id]
-
-  # VPC endpoint for KMS
-  enable_kms_endpoint              = true
-  kms_endpoint_private_dns_enabled = true
-  kms_endpoint_security_group_ids  = [data.aws_security_group.default.id]
-
-
   # VPC Flow Logs (Cloudwatch log group and IAM role will be created)
   enable_flow_log                      = true
   create_flow_log_cloudwatch_log_group = true
@@ -65,7 +36,7 @@ module "vpc" {
   tags = {
     Owner       = "user"
     Environment = "test"
-    Name        = "complete"
+    Name        = "terraform-test"
   }
 
   vpc_endpoint_tags = {
